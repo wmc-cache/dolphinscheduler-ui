@@ -27,135 +27,165 @@ import {
   ProcessDefinitionReq,
   TargetCodeReq
 } from './types'
+// 导入模拟数据
+import * as mockProcessDefinition from '../../mock/modules/process-definition'
 
 export function queryListPaging(params: PageReq & ListReq, code: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryListPaging(params, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function createProcessDefinition(
   data: ProcessDefinitionReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.createProcessDefinition(data, projectCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function queryProcessDefinitionList(projectCode: number): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition/query-process-definition-list`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryProcessDefinitionList(projectCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition/query-process-definition-list`,
+  //   method: 'get'
+  // })
 }
 
 export function batchCopyByCodes(
   data: TargetCodeReq & CodesReq,
   code: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/batch-copy`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.batchCopyByCodes(data, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/batch-copy`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function batchDeleteByCodes(data: CodesReq, code: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition/batch-delete`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.batchDeleteByCodes(data, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/batch-delete`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function batchExportByCodes(data: CodesReq, code: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition/batch-export`,
-    method: 'post',
-    responseType: 'blob',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.batchExportByCodes(data, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/batch-export`,
+  //   method: 'post',
+  //   responseType: 'blob',
+  //   data
+  // })
 }
 
 export function batchMoveByCodes(
   data: TargetCodeReq & CodesReq,
   code: CodeReq
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/batch-move`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.batchMoveByCodes(data, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/batch-move`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function getTaskListByDefinitionCodes(
   params: CodesReq,
   code: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/batch-query-tasks`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.getTaskListByDefinitionCodes(params, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/batch-query-tasks`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function importProcessDefinition(data: FormData, code: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition/import`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.importProcessDefinition(data, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/import`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function queryList(code: CodeReq): any {
-  return axios({
-    url: `/projects/${code}/process-definition/list`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryList(code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/list`,
+  //   method: 'get'
+  // })
 }
 
 export function queryProcessDefinitionByName(
   params: NameReq,
   code: CodeReq
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/query-by-name`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryProcessDefinitionByName(params, code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/query-by-name`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function querySimpleList(code: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition/simple-list`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.querySimpleList(code)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/simple-list`,
+  //   method: 'get'
+  // })
 }
 
 export function verifyName(
   params: { name: string; workflowCode?: number },
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition/verify-name`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.verifyName(params, projectCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition/verify-name`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProcessDefinitionByCode(
   code: number,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition/${code}`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryProcessDefinitionByCode(code, projectCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition/${code}`,
+  //   method: 'get'
+  // })
 }
 
 export function updateProcessDefinition(
@@ -163,18 +193,22 @@ export function updateProcessDefinition(
   code: number,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition/${code}`,
-    method: 'put',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.updateProcessDefinition(data, code, projectCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition/${code}`,
+  //   method: 'put',
+  //   data
+  // })
 }
 
 export function deleteByCode(code: number, processCode: number): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}`,
-    method: 'delete'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.deleteByCode(code, processCode)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}`,
+  //   method: 'delete'
+  // })
 }
 
 export function release(
@@ -182,24 +216,28 @@ export function release(
   code: number,
   processCode: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/release`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.release(data, code, processCode)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/release`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function getTasksByDefinitionList(
   projectCode: number,
   processCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/process-definition/query-task-definition-list`,
-    method: 'get',
-    params: {
-      processDefinitionCode: processCode
-    }
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.getTasksByDefinitionList(projectCode, processCode)
+  // return axios({
+  //   url: `/projects/${projectCode}/process-definition/query-task-definition-list`,
+  //   method: 'get',
+  //   params: {
+  //     processDefinitionCode: processCode
+  //   }
+  // })
 }
 
 export function queryVersions(
@@ -207,11 +245,13 @@ export function queryVersions(
   code: number,
   processCode: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/versions`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.queryVersions(params, code, processCode)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/versions`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function switchVersion(
@@ -219,10 +259,12 @@ export function switchVersion(
   processCode: number,
   version: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/versions/${version}`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.switchVersion(code, processCode, version)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/versions/${version}`,
+  //   method: 'get'
+  // })
 }
 
 export function deleteVersion(
@@ -230,10 +272,12 @@ export function deleteVersion(
   processCode: number,
   version: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/versions/${version}`,
-    method: 'delete'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.deleteVersion(code, processCode, version)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/versions/${version}`,
+  //   method: 'delete'
+  // })
 }
 
 export function viewTree(
@@ -241,19 +285,23 @@ export function viewTree(
   processCode: number,
   params: LimitReq
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/view-tree`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.viewTree(code, processCode, params)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/view-tree`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function viewProcessDefinitionVariables(
   code: number,
   processCode: number
 ): any {
-  return axios({
-    url: `/projects/${code}/process-definition/${processCode}/view-variables`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProcessDefinition.viewProcessDefinitionVariables(code, processCode)
+  // return axios({
+  //   url: `/projects/${code}/process-definition/${processCode}/view-variables`,
+  //   method: 'get'
+  // })
 }
