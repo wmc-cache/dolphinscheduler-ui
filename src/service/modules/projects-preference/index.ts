@@ -21,32 +21,46 @@ import {
   UpdateProjectPreferenceReq,
   UpdateProjectPreferenceStateReq
 } from './types'
+// 导入模拟数据
+import * as mockProjectPreference from '../../mock/modules/projects-preference'
 
 export function queryProjectPreferenceByProjectCode(projectCode: number): any {
-  return axios({
-    url: `/projects/${projectCode}/project-preference`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjectPreference.queryProjectPreferenceByProjectCode(projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-preference`,
+  //   method: 'get'
+  // })
 }
 
 export function updateProjectPreference(
   data: UpdateProjectPreferenceReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-preference`,
-    method: 'put',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectPreference.updateProjectPreference(data, projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-preference`,
+  //   method: 'put',
+  //   data
+  // })
 }
 
 export function updateProjectPreferenceState(
   data: UpdateProjectPreferenceStateReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-preference`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectPreference.updateProjectPreferenceState(data, projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-preference`,
+  //   method: 'post',
+  //   data
+  // })
 }

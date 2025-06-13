@@ -22,68 +22,96 @@ import {
   ProjectParameterReq,
   UpdateProjectParameterReq
 } from './types'
+// 导入模拟数据
+import * as mockProjectParameter from '../../mock/modules/projects-parameter'
 
 export function queryProjectParameterListPaging(
   params: ListReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter`,
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectParameter.queryProjectParameterListPaging(params, projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter`,
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProjectParameterByCode(
   projectCode: number,
   code: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter/${code}`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjectParameter.queryProjectParameterByCode(projectCode, code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter/${code}`,
+  //   method: 'get'
+  // })
 }
 
 export function createProjectParameter(
   data: ProjectParameterReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectParameter.createProjectParameter(data, projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function updateProjectParameter(
   data: UpdateProjectParameterReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter/${data.code}`,
-    method: 'put',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectParameter.updateProjectParameter(data, projectCode, data.code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter/${data.code}`,
+  //   method: 'put',
+  //   data
+  // })
 }
 
 export function deleteProjectParameterByCode(
   data: ProjectParameterCodeReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter/delete`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectParameter.deleteProjectParameter(projectCode, data.code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter/delete`,
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function deleteProjectParameterByCodes(
   data: ProjectParameterCodeReq[],
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/project-parameter/batch-delete`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据 - 批量删除
+  return Promise.all(
+    data.map(item => mockProjectParameter.deleteProjectParameter(projectCode, item.code))
+  ).then(() => true)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/project-parameter/batch-delete`,
+  //   method: 'post',
+  //   data
+  // })
 }

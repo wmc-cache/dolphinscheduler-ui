@@ -17,57 +17,87 @@
 
 import { axios } from '@/service/service'
 import { ListReq, CodeReq, StateReq } from './types'
+// 导入模拟数据
+import * as mockProjectAnalysis from '../../mock/modules/projects-analysis'
 
 export function countCommandState(): any {
-  return axios({
-    url: '/projects/analysis/command-state-count',
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.countCommandState()
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/command-state-count',
+  //   method: 'get'
+  // })
 }
 
 export function countDefinitionByUser(params: CodeReq): any {
-  return axios({
-    url: '/projects/analysis/define-user-count',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.countDefinitionByUser(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/define-user-count',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function countProcessInstanceState(params: StateReq): any {
-  return axios({
-    url: '/projects/analysis/process-state-count',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.countProcessInstanceState(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/process-state-count',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function countQueueState(): any {
-  return axios({
-    url: '/projects/analysis/queue-count',
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.countQueueState()
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/queue-count',
+  //   method: 'get'
+  // })
 }
 
 export function countTaskState(params: StateReq): any {
-  return axios({
-    url: '/projects/analysis/task-state-count',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.countTaskState(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/task-state-count',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryListCommandPaging(params: ListReq): any {
-  return axios({
-    url: '/projects/analysis/listCommand',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.queryListCommandPaging(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/listCommand',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryListErrorCommandPaging(params: ListReq): any {
-  return axios({
-    url: '/projects/analysis/listErrorCommand',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjectAnalysis.queryListErrorCommandPaging(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/analysis/listErrorCommand',
+  //   method: 'get',
+  //   params
+  // })
 }

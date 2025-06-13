@@ -17,96 +17,146 @@
 
 import { axios } from '@/service/service'
 import { ListReq, ListIdReq, ProjectsReq, UserIdReq } from './types'
+// 导入模拟数据
+import * as mockProjects from '../../mock/modules/projects'
 
 export function queryProjectListPaging(params: ListReq): any {
-  return axios({
-    url: '/projects',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjects.queryProjectListPaging(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProjectWithAuthorizedLevelListPaging(
   params: ListIdReq
 ): any {
-  return axios({
-    url: '/projects/project-with-authorized-level-list-paging',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjects.queryProjectWithAuthorizedLevelListPaging(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/project-with-authorized-level-list-paging',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function createProject(data: ProjectsReq): any {
-  return axios({
-    url: '/projects',
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProjects.createProject(data)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects',
+  //   method: 'post',
+  //   data
+  // })
 }
 
 export function queryAuthorizedProject(params: UserIdReq): any {
-  return axios({
-    url: '/projects/authed-project',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjects.queryAuthorizedProject(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/authed-project',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProjectCreatedAndAuthorizedByUser(): any {
-  return axios({
-    url: '/projects/created-and-authed',
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjects.queryProjectCreatedAndAuthorizedByUser()
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/created-and-authed',
+  //   method: 'get'
+  // })
 }
 
 export function queryAllProjectList(): any {
-  return axios({
-    url: '/projects/list',
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjects.queryAllProjectList()
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/list',
+  //   method: 'get'
+  // })
 }
 
 export function queryUnauthorizedProject(params: UserIdReq): any {
-  return axios({
-    url: '/projects/unauth-project',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjects.queryUnauthorizedProject(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/unauth-project',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProjectWithAuthorizedLevel(params: UserIdReq): any {
-  return axios({
-    url: '/projects/project-with-authorized-level',
-    method: 'get',
-    params
-  })
+  // 使用模拟数据
+  return mockProjects.queryProjectWithAuthorizedLevel(params)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/project-with-authorized-level',
+  //   method: 'get',
+  //   params
+  // })
 }
 
 export function queryProjectByCode(code: number): any {
-  return axios({
-    url: `/projects/${code}`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjects.queryProjectByCode(code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${code}`,
+  //   method: 'get'
+  // })
 }
 
 export function updateProject(data: ProjectsReq, code: number): any {
-  return axios({
-    url: `/projects/${code}`,
-    method: 'put',
-    data
-  })
+  // 使用模拟数据
+  return mockProjects.updateProject(data, code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${code}`,
+  //   method: 'put',
+  //   data
+  // })
 }
 
 export function deleteProject(code: number): any {
-  return axios({
-    url: `/projects/${code}`,
-    method: 'delete'
-  })
+  // 使用模拟数据
+  return mockProjects.deleteProject(code)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${code}`,
+  //   method: 'delete'
+  // })
 }
 
 export function queryAllProjectListForDependent(): any {
-  return axios({
-    url: '/projects/list-dependent',
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjects.queryAllProjectListForDependent()
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: '/projects/list-dependent',
+  //   method: 'get'
+  // })
 }

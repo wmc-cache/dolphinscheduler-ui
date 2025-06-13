@@ -17,21 +17,31 @@
 
 import { axios } from '@/service/service'
 import { UpdateProjectWorkerGroupsReq } from '@/service/modules/projects-worker-group/types'
+// 导入模拟数据
+import * as mockProjectWorkerGroup from '../../mock/modules/projects-worker-group'
 
 export function queryWorkerGroupsByProjectCode(projectCode: number): any {
-  return axios({
-    url: `/projects/${projectCode}/worker-group`,
-    method: 'get'
-  })
+  // 使用模拟数据
+  return mockProjectWorkerGroup.queryWorkerGroupsByProjectCode(projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/worker-group`,
+  //   method: 'get'
+  // })
 }
 
 export function assignWorkerGroups(
   data: UpdateProjectWorkerGroupsReq,
   projectCode: number
 ): any {
-  return axios({
-    url: `/projects/${projectCode}/worker-group`,
-    method: 'post',
-    data
-  })
+  // 使用模拟数据
+  return mockProjectWorkerGroup.assignWorkerGroups(data, projectCode)
+  
+  // 原始API调用（已注释）
+  // return axios({
+  //   url: `/projects/${projectCode}/worker-group`,
+  //   method: 'post',
+  //   data
+  // })
 }
