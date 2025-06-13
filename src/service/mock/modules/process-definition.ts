@@ -42,7 +42,7 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       userId: 1,
       userName: 'admin',
       projectName: '示例项目1',
-      locations: '{"task_1":{"x":100,"y":100},"task_2":{"x":300,"y":100}}',
+      locations: '[{"taskCode":3001,"x":100,"y":100},{"taskCode":3002,"x":300,"y":100}]',
       scheduleReleaseState: 'ONLINE',
       timeout: 0,
       tenantId: 1,
@@ -52,14 +52,25 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       warningGroupId: 0,
       taskDefinitionList: [
         {
+          id: 3001,
           code: 3001,
           name: 'extract_data',
-          taskType: 'SHELL',
+          version: 1,
           description: '提取数据任务',
-          taskParams: '{"rawScript":"#!/bin/bash\\necho \\"Extracting data...\\""}',
+          projectCode: 1001,
+          userId: 1,
+          taskType: 'SHELL',
+          taskParams: {
+            rawScript: '#!/bin/bash\necho "Extracting data..."'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'MEDIUM',
+          userName: 'admin',
+          projectName: '示例项目1',
           workerGroup: 'default',
+          environmentCode: 0,
           failRetryTimes: 0,
           failRetryInterval: 1,
           timeoutFlag: 'CLOSE',
@@ -69,17 +80,29 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-01 10:00:00',
           updateTime: '2024-01-01 10:00:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         },
         {
+          id: 3002,
           code: 3002,
           name: 'transform_data',
-          taskType: 'SHELL',
+          version: 1,
           description: '转换数据任务',
-          taskParams: '{"rawScript":"#!/bin/bash\\necho \\"Transforming data...\\""}',
+          projectCode: 1001,
+          userId: 1,
+          taskType: 'SHELL',
+          taskParams: {
+            rawScript: '#!/bin/bash\necho "Transforming data..."'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'MEDIUM',
+          userName: 'admin',
+          projectName: '示例项目1',
           workerGroup: 'default',
+          environmentCode: 0,
           failRetryTimes: 0,
           failRetryInterval: 1,
           timeoutFlag: 'CLOSE',
@@ -89,7 +112,8 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-01 10:05:00',
           updateTime: '2024-01-01 10:05:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         }
       ],
       processTaskRelationList: [
@@ -111,7 +135,7 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       code: 2002,
       name: '报表生成工作流',
       version: 1,
-      releaseState: 'OFFLINE',
+      releaseState: 'ONLINE',
       projectCode: 1001,
       description: '生成日报、周报、月报',
       globalParams: '[{"prop":"report_date","value":"${system.biz.date}","direct":"IN","type":"VARCHAR"}]',
@@ -132,8 +156,8 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       userId: 1,
       userName: 'admin',
       projectName: '示例项目1',
-      locations: '{"task_3":{"x":150,"y":150}}',
-      scheduleReleaseState: 'OFFLINE',
+      locations: '[{"taskCode":3003,"x":150,"y":150}]',
+      scheduleReleaseState: 'ONLINE',
       timeout: 3600,
       tenantId: 1,
       tenantCode: 'default',
@@ -142,14 +166,37 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       warningGroupId: 1,
       taskDefinitionList: [
         {
+          id: 3003,
           code: 3003,
           name: 'generate_report',
-          taskType: 'SQL',
+          version: 1,
           description: '生成报表数据',
-          taskParams: '{"type":"MYSQL","datasource":1,"sql":"SELECT * FROM sales_data WHERE date = \'${report_date}\'","sqlType":"0","displayRows":10}',
+          projectCode: 1001,
+          userId: 1,
+          taskType: 'SQL',
+          taskParams: {
+            type: 'MYSQL',
+            datasource: 1,
+            sql: 'SELECT * FROM sales_data WHERE date = \'${report_date}\'',
+            sqlType: '0',
+            displayRows: 10,
+            localParams: [
+              {
+                prop: 'report_date',
+                direct: 'IN',
+                type: 'VARCHAR',
+                value: '${system.biz.date}'
+              }
+            ]
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'admin',
+          projectName: '示例项目1',
           workerGroup: 'default',
+          environmentCode: 0,
           failRetryTimes: 3,
           failRetryInterval: 1,
           timeoutFlag: 'OPEN',
@@ -159,7 +206,8 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-02 09:15:00',
           updateTime: '2024-01-02 09:15:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         }
       ],
       processTaskRelationList: []
@@ -183,7 +231,7 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       userId: 1,
       userName: 'admin',
       projectName: '数据处理项目',
-      locations: '{"task_4":{"x":100,"y":100},"task_5":{"x":300,"y":100},"task_6":{"x":500,"y":100}}',
+      locations: '[{"taskCode":3004,"x":100,"y":100},{"taskCode":3005,"x":300,"y":100},{"taskCode":3006,"x":500,"y":100}]',
       scheduleReleaseState: 'ONLINE',
       timeout: 7200,
       tenantId: 2,
@@ -193,14 +241,27 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       warningGroupId: 1,
       taskDefinitionList: [
         {
+          id: 3004,
           code: 3004,
           name: 'extract_source_data',
-          taskType: 'DATAX',
+          version: 1,
           description: '从源系统提取数据',
-          taskParams: '{"customConfig":false,"dsType":"MYSQL","dtType":"HDFS"}',
+          projectCode: 1002,
+          userId: 1,
+          taskType: 'DATAX',
+          taskParams: {
+            customConfig: false,
+            dsType: 'MYSQL',
+            dtType: 'HDFS'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'admin',
+          projectName: '数据处理项目',
           workerGroup: 'etl-workers',
+          environmentCode: 0,
           failRetryTimes: 2,
           failRetryInterval: 5,
           timeoutFlag: 'OPEN',
@@ -210,17 +271,37 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-03 16:45:00',
           updateTime: '2024-01-03 16:45:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         },
         {
+          id: 3005,
           code: 3005,
           name: 'transform_data',
-          taskType: 'SPARK',
+          version: 1,
           description: '数据清洗和转换',
-          taskParams: '{"programType":"SCALA","mainClass":"com.example.DataTransform","mainJar":{"id":1},"deployMode":"cluster","driverCores":1,"driverMemory":"512M","numExecutors":2,"executorMemory":"2G","executorCores":2}',
+          projectCode: 1002,
+          userId: 1,
+          taskType: 'SPARK',
+          taskParams: {
+            programType: 'SCALA',
+            mainClass: 'com.example.DataTransform',
+            mainJar: { id: 1 },
+            deployMode: 'cluster',
+            driverCores: 1,
+            driverMemory: '512M',
+            numExecutors: 2,
+            executorMemory: '2G',
+            executorCores: 2
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'admin',
+          projectName: '数据处理项目',
           workerGroup: 'etl-workers',
+          environmentCode: 0,
           failRetryTimes: 2,
           failRetryInterval: 5,
           timeoutFlag: 'OPEN',
@@ -230,17 +311,33 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-03 17:00:00',
           updateTime: '2024-01-03 17:00:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         },
         {
+          id: 3006,
           code: 3006,
           name: 'load_to_warehouse',
-          taskType: 'SQL',
+          version: 1,
           description: '加载数据到数据仓库',
-          taskParams: '{"type":"HIVE","datasource":2,"sql":"INSERT INTO warehouse.fact_table SELECT * FROM staging.temp_table","sqlType":"0","displayRows":10}',
+          projectCode: 1002,
+          userId: 1,
+          taskType: 'SQL',
+          taskParams: {
+            type: 'HIVE',
+            datasource: 2,
+            sql: 'INSERT INTO warehouse.fact_table SELECT * FROM staging.temp_table',
+            sqlType: '0',
+            displayRows: 10
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'admin',
+          projectName: '数据处理项目',
           workerGroup: 'etl-workers',
+          environmentCode: 0,
           failRetryTimes: 1,
           failRetryInterval: 3,
           timeoutFlag: 'OPEN',
@@ -250,7 +347,8 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-03 17:15:00',
           updateTime: '2024-01-03 17:15:00',
-          version: 1
+          modifyBy: 'admin',
+          dependence: ''
         }
       ],
       processTaskRelationList: [
@@ -306,7 +404,7 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       userId: 2,
       userName: 'user1',
       projectName: '机器学习项目',
-      locations: '{"task_7":{"x":100,"y":100},"task_8":{"x":300,"y":100},"task_9":{"x":500,"y":100}}',
+      locations: '[{"taskCode":3007,"x":100,"y":100},{"taskCode":3008,"x":300,"y":100},{"taskCode":3009,"x":500,"y":100}]',
       scheduleReleaseState: 'OFFLINE',
       timeout: 14400,
       tenantId: 3,
@@ -316,14 +414,25 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
       warningGroupId: 2,
       taskDefinitionList: [
         {
+          id: 3007,
           code: 3007,
           name: 'prepare_training_data',
-          taskType: 'PYTHON',
+          version: 1,
           description: '准备训练数据',
-          taskParams: '{"rawScript":"import pandas as pd\\nprint(\\"Preparing training data...\\")"}',
+          projectCode: 1003,
+          userId: 2,
+          taskType: 'PYTHON',
+          taskParams: {
+            rawScript: 'import pandas as pd\nprint("Preparing training data...")'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'user1',
+          projectName: '机器学习项目',
           workerGroup: 'ml-workers',
+          environmentCode: 0,
           failRetryTimes: 1,
           failRetryInterval: 2,
           timeoutFlag: 'OPEN',
@@ -333,17 +442,29 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-04 13:20:00',
           updateTime: '2024-01-04 13:20:00',
-          version: 1
+          modifyBy: 'user1',
+          dependence: ''
         },
         {
+          id: 3008,
           code: 3008,
           name: 'train_model',
-          taskType: 'PYTHON',
+          version: 1,
           description: '训练机器学习模型',
-          taskParams: '{"rawScript":"from sklearn.ensemble import RandomForestClassifier\\nprint(\\"Training model...\\")"}',
+          projectCode: 1003,
+          userId: 2,
+          taskType: 'PYTHON',
+          taskParams: {
+            rawScript: 'from sklearn.ensemble import RandomForestClassifier\nprint("Training model...")'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'HIGH',
+          userName: 'user1',
+          projectName: '机器学习项目',
           workerGroup: 'ml-workers',
+          environmentCode: 0,
           failRetryTimes: 2,
           failRetryInterval: 5,
           timeoutFlag: 'OPEN',
@@ -353,17 +474,29 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-04 13:30:00',
           updateTime: '2024-01-04 13:30:00',
-          version: 1
+          modifyBy: 'user1',
+          dependence: ''
         },
         {
+          id: 3009,
           code: 3009,
           name: 'evaluate_model',
-          taskType: 'PYTHON',
+          version: 1,
           description: '评估模型性能',
-          taskParams: '{"rawScript":"from sklearn.metrics import accuracy_score\\nprint(\\"Evaluating model...\\")"}',
+          projectCode: 1003,
+          userId: 2,
+          taskType: 'PYTHON',
+          taskParams: {
+            rawScript: 'from sklearn.metrics import accuracy_score\nprint("Evaluating model...")'
+          },
+          taskParamList: [],
+          taskParamMap: {},
           flag: 'YES',
           taskPriority: 'MEDIUM',
+          userName: 'user1',
+          projectName: '机器学习项目',
           workerGroup: 'ml-workers',
+          environmentCode: 0,
           failRetryTimes: 1,
           failRetryInterval: 2,
           timeoutFlag: 'OPEN',
@@ -373,7 +506,8 @@ const mockProcessDefinitions: { [projectCode: number]: any[] } = {
           resourceIds: '',
           createTime: '2024-01-04 13:45:00',
           updateTime: '2024-01-04 13:45:00',
-          version: 1
+          modifyBy: 'user1',
+          dependence: ''
         }
       ],
       processTaskRelationList: [
@@ -653,7 +787,7 @@ export function batchCopyByCodes(
         mockProcessDefinitions[targetProjectCode] = []
       }
       
-      codes.forEach(code => {
+      codes.forEach((code: number) => {
         const sourceDef = sourceDefinitions.find(def => def.code === code)
         if (sourceDef) {
           const newDefinition = {
@@ -682,7 +816,7 @@ export function batchDeleteByCodes(data: any, projectCode: number): Promise<bool
       const codes = data.codes.split(',').map((code: string) => parseInt(code))
       const definitions = mockProcessDefinitions[projectCode] || []
       
-      codes.forEach(code => {
+      codes.forEach((code: number) => {
         const defIndex = definitions.findIndex(def => def.code === code)
         if (defIndex !== -1) {
           definitions.splice(defIndex, 1)

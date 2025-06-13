@@ -52,6 +52,22 @@ export function save(
 }
 
 export function genTaskCodeList(num: number, projectCode: number) {
+  // 在开发模式下使用模拟数据
+  if (import.meta.env.MODE === 'development') {
+    return new Promise<number[]>((resolve) => {
+      setTimeout(() => {
+        // 生成指定数量的任务代码
+        const codes: number[] = []
+        const baseCode = Date.now() // 使用时间戳作为基础代码
+        for (let i = 0; i < num; i++) {
+          codes.push(baseCode + i)
+        }
+        resolve(codes)
+      }, 200)
+    })
+  }
+  
+  // 生产模式下使用真实API
   return axios.request<unknown, number[]>({
     url: `/projects/${projectCode}/task-definition/gen-task-codes`,
     method: 'get',
